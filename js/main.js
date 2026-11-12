@@ -150,9 +150,9 @@
       title: '个人简历 · Resume',
       /* 文件形式（第 10 轮诊断证实：预览沙箱中文件图片加载 100% 可靠；
          data URI 大图会静默失败且增大主 bundle，已移除内联兜底） */
-      pages: ['assets/img/doc-resume.jpg?v=4'],
+      pages: ['assets/img/doc-resume.jpg?v=5'],
       pdf: 'assets/resume.pdf',
-      pdfJs: 'js/pdf-resume.js?v=4'
+      pdfJs: 'js/pdf-resume.js?v=5'
     },
     portfolio: {
       title: '作品集 · Portfolio',
