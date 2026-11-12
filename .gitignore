@@ -1,0 +1,3 @@
+# 线上不需要的原始 PDF（页面实际读取 js/pdf-*.js 内嵌版本）
+assets/docs/*.pdf
+assets/*.pdf

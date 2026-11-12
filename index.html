@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yiran's Portfolio</title>
+  <meta name="description" content="Yiran's Portfolio — 王依然：AI+内容创作 × 数据叙事 × 短视频策划。把复杂讲简单，把简单讲动人。">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M50 3 C57 33 67 43 97 50 C67 57 57 67 50 97 C43 67 33 57 3 50 C33 43 43 33 50 3 Z' fill='%23f0c95c'/><circle cx='82' cy='20' r='5' fill='%23f7a8c4'/></svg>">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/intro.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&display=swap" media="print" onload="this.media='all'">
+</head>
+<body>
+
+  <!-- ===================== 开场覆盖层（与主页同一链接，不跳转） ===================== -->
+  <div class="intro-layer" id="introLayer" role="dialog" aria-modal="true" aria-label="开场动画">
+    <img class="scene-base" id="sceneBase" src="assets/img/intro/base.jpg?v=3" alt="" draggable="false">
+    <div class="scene-vignette" aria-hidden="true"></div>
+    <div class="scene-flowers" id="sceneFlowers" aria-hidden="true"></div>
+    <div class="idot-flower" id="idotFlower" aria-hidden="true"><img src="assets/img/intro/flower-idot.png?v=3" alt=""></div>
+    <div class="intro-title" id="introTitle" aria-label="walk with Yiran">
+      <span class="tline tline-1" data-text="walk"></span>
+      <span class="tline tline-2" data-text="with Yiran"></span>
+    </div>
+    <div class="intro-loader" id="introLoader">
+      <div class="loader-row">
+        <span class="loader-label">LOADING THE GARDEN</span>
+        <span class="loader-pct" id="loaderPct">0%</span>
+      </div>
+      <div class="loader-track"><i class="loader-fill" id="loaderFill"></i></div>
+    </div>
+    <button class="enter" id="enterBtn" type="button">
+      <span class="enter-cn">✿ 点击进入下一界面</span>
+      <span class="enter-en">CLICK TO ENTER</span>
+    </button>
+  </div>
+
+  <!-- 顶部滚动进度条 -->
+  <div class="progress" aria-hidden="true"><i id="progressBar"></i></div>
+
+  <!-- ===================== 导航 ===================== -->
+  <header class="nav" id="nav">
+    <a class="nav-logo" href="#hero">✿ Yiran's Portfolio</a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#about" data-spy="about">个人简介</a>
+      <a href="#works" data-spy="works">作品</a>
+      <a href="#journey" data-spy="journey">实习经历</a>
+      <a href="#contact" data-spy="contact">联系方式</a>
+    </nav>
+    <div class="nav-right">
+      <button class="btn-pill btn-dark btn-sm nav-resume" type="button" data-doc="resume">查看简历</button>
+      <button class="nav-burger" id="burger" aria-label="打开菜单"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <!-- 移动端全屏菜单 -->
+  <div class="mobile-menu" id="mobileMenu">
+    <nav>
+      <a href="#about">个人简介</a>
+      <a href="#works">作品</a>
+      <a href="#journey">实习经历</a>
+      <a href="#contact">联系方式</a>
+    </nav>
+    <button class="btn-pill btn-dark" type="button" data-doc="resume">查看简历</button>
+  </div>
+
+  <main>
+
+    <!-- ===================== Hero ===================== -->
+    <section class="hero" id="hero">
+      <div class="stars" id="stars" aria-hidden="true"></div>
+      <div class="hero-inner">
+        <div class="hero-text">
+          <p class="hero-kicker reveal">welcome to my</p>
+          <h1 class="hero-title reveal">portfolio</h1>
+          <p class="hero-name reveal">王 依 然 <span class="hero-en">/ Yiran Wang</span></p>
+          <p class="hero-tagline reveal"><span id="typewriter"></span><span class="caret" aria-hidden="true"></span></p>
+          <div class="hero-tags reveal">
+            <span>数据新闻</span><i>✦</i><span>影像创作</span><i>✦</i><span>AIGC 工具流</span><i>✦</i><span>品牌策划</span>
+          </div>
+          <div class="hero-cta reveal">
+            <button class="btn-pill btn-dark" type="button" data-doc="portfolio">查看作品集 →</button>
+            <button class="btn-pill btn-resume" type="button" data-doc="resume">📄 查看简历</button>
+            <a class="btn-pill btn-ghost" href="#contact">和我聊聊 →</a>
+          </div>
+        </div>
+
+        <!-- 拍立得拼贴 -->
+        <div class="hero-collage" id="heroCollage" aria-hidden="true">
+          <figure class="polaroid p1" data-depth="26">
+            <img src="assets/img/photo-1.jpg" alt="生活照" loading="eager">
+            <figcaption>是我呀 🌿</figcaption>
+          </figure>
+          <figure class="polaroid p2" data-depth="44">
+            <img src="assets/img/work-taihe.jpg" alt="千里泰和·万里绿境" loading="eager">
+            <figcaption>AI 数字人 · 双语</figcaption>
+          </figure>
+          <figure class="polaroid p3" data-depth="18">
+            <img src="assets/img/work-shenshan.jpg" alt="十年·神山的变与不变" loading="eager">
+            <figcaption>数据新闻 · 260w+</figcaption>
+          </figure>
+          <figure class="polaroid p4" data-depth="36">
+            <img src="assets/img/work-yinlu.jpg" alt="高能量人的一天" loading="eager">
+            <figcaption>学院奖 · 优秀奖</figcaption>
+          </figure>
+          <span class="star s-a">✦</span><span class="star s-b">✧</span><span class="star s-c">✦</span>
+        </div>
+      </div>
+      <a class="scroll-hint" href="#about"><span>向下滚动探索</span><i>↓</i></a>
+    </section>
+
+    <!-- 跑马灯 -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>数据新闻 ✦ 影像创作 ✦ AIGC 探索者 ✦ 品牌策划 ✦ 全网阅读 260w+ ✦ 国家级奖项 8 项 ✦ 4 段实习经历 ✦ 20+ 原创作品 ✦</span>
+        <span>数据新闻 ✦ 影像创作 ✦ AIGC 探索者 ✦ 品牌策划 ✦ 全网阅读 260w+ ✦ 国家级奖项 8 项 ✦ 4 段实习经历 ✦ 20+ 原创作品 ✦</span>
+      </div>
+    </div>
+
+    <!-- ===================== 个人简介 ===================== -->
+    <section class="section about" id="about">
+      <div class="container">
+        <p class="section-no reveal">01 / PROFILE</p>
+        <h2 class="section-title reveal">个人简介</h2>
+
+        <div class="about-grid">
+          <!-- 左：拱窗相框照片 -->
+          <div class="about-photo reveal">
+            <div class="arch-frame">
+              <div class="arch-inner">
+                <img src="assets/img/photo-1.jpg" alt="王依然的生活照">
+              </div>
+              <span class="arch-tape" aria-hidden="true"></span>
+              <span class="arch-bow" aria-hidden="true">🎀</span>
+              <span class="arch-star st1" aria-hidden="true">✦</span>
+              <span class="arch-star st2" aria-hidden="true">✧</span>
+              <span class="arch-heart" aria-hidden="true">♥</span>
+            </div>
+            <p class="about-photo-cap">🎵 音乐 / 生活 / 摄影</p>
+          </div>
+
+          <!-- 右：文字与卡片 -->
+          <div class="about-body">
+            <h3 class="reveal">Hi~ 我是王依然 <span class="wave">👋</span></h3>
+            <p class="about-meta reveal">21 岁 · 南昌大学 新闻学 本科在读 · 已推免至中国传媒大学</p>
+            <p class="about-intro reveal"><span class="about-lead">AI+内容创作 × 数据叙事 × 短视频策划</span>把复杂讲简单，把简单讲动人。<br>AI+创意，好内容自然生长。<br>操盘过 260w+ 阅读的数据新闻，拍过纪录片与广告片，独立运营小红书账号。<br>AI / 产品、内容运营、短视频运营与品牌公关。</p>
+
+            <div class="about-card skills-card reveal">
+              <h4>🎀 职业技能</h4>
+              <ul>
+                <li><b>英语</b><span>CET-4 · CET-6 · 全国大学生英语翻译大赛（省二）</span></li>
+                <li><b>影像</b><span>剪映 / Premiere / AE · 拍摄与布光 · 后期剪辑</span></li>
+                <li><b>数据</b><span>数据新闻采编 · Excel 数据处理 · PS 信息图表</span></li>
+                <li><b>写作</b><span>新闻采写 · 脚本策划 · 品牌文案</span></li>
+                <li><b>AI 工具</b><span>Codex · DeepSeek · 豆包 · 即梦 · AI 数字人制作</span></li>
+                <li><b>自媒体</b><span>小红书账号运营 · 获赞与收藏 28w+ · 粉丝破千</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 教育背景（大卡） -->
+        <div class="edu-block reveal">
+          <h3 class="edu-heading">🎓 教育背景 <span>EDUCATION</span></h3>
+          <div class="edu-cards">
+            <article class="edu-card">
+              <div class="edu-visual">
+                <img class="campus-photo" src="assets/img/campus-cuc.webp" alt="中国传媒大学">
+                <span class="edu-spark s1">✦</span><span class="edu-spark s2">✧</span>
+              </div>
+              <div class="edu-info">
+                <span class="edu-tag">硕士 · 推免</span>
+                <h4>中国传媒大学</h4>
+                <p class="edu-major">新闻与传播</p>
+                <p class="edu-date">2027.09 入学</p>
+              </div>
+            </article>
+            <article class="edu-card">
+              <div class="edu-visual">
+                <img class="campus-photo" src="assets/img/campus-ncu.webp" alt="南昌大学">
+                <span class="edu-spark s1">✦</span><span class="edu-spark s2">✧</span>
+              </div>
+              <div class="edu-info">
+                <span class="edu-tag">本科 · 新闻学</span>
+                <h4>南昌大学</h4>
+                <p class="edu-major">新闻学 ·  GPA 3.72/4.0 · 专业前 6%</p>
+                <p class="edu-date">2023.09 – 2027.06</p>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- 荣誉 & 数据 -->
+        <div class="about-honors reveal">
+          <span>🏆 连续三年获得国家励志奖学金</span><span>校一等奖学金</span><span>三好学生</span><span>优秀学生干部</span><span>普通话二级甲等</span><span>计算机二级证书</span><span>CET-4 · CET-6（500+）</span>
+        </div>
+
+        <div class="about-stats reveal">
+          <div class="stat"><b data-count="8">0</b><span>国家级奖项</span></div>
+          <div class="stat"><b data-count="5">0</b><span>省级奖项</span></div>
+          <div class="stat"><b><em>260w+</em></b><span>作品全网阅读</span></div>
+          <div class="stat"><b data-count="20" data-suffix="+">0</b><span>原创作品</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 作品集 ===================== -->
+    <section class="section works" id="works">
+      <div class="container">
+        <p class="section-no reveal">02 / WORKS</p>
+        <h2 class="section-title reveal">作品集</h2>
+        <p class="section-sub reveal">选择分类，拖动旋转圆环 · 点击卡片查看详情 ✨</p>
+
+        <!-- 一级分类：滑动选中态 -->
+        <div class="filter-bar reveal" id="filterBar" role="tablist">
+          <span class="filter-indicator" id="filterIndicator" aria-hidden="true"></span>
+          <button class="filter-btn active" data-cat="video" role="tab" aria-selected="true">视频作品</button>
+          <button class="filter-btn" data-cat="project" role="tab" aria-selected="false">项目经历</button>
+          <button class="filter-btn" data-cat="print" role="tab" aria-selected="false">图文作品</button>
+        </div>
+
+        <!-- 二级分类（视频作品子类） -->
+        <div class="filter-bar sub-bar" id="subFilterBar" role="tablist">
+          <span class="filter-indicator" id="subFilterIndicator" aria-hidden="true"></span>
+          <button class="sub-btn active" data-sub="all" role="tab" aria-selected="true">全部</button>
+          <button class="sub-btn" data-sub="ai" role="tab" aria-selected="false">数字人 · AI视频</button>
+          <button class="sub-btn" data-sub="promo" role="tab" aria-selected="false">宣传片</button>
+          <button class="sub-btn" data-sub="doc" role="tab" aria-selected="false">纪实影像</button>
+          <button class="sub-btn" data-sub="ad" role="tab" aria-selected="false">广告</button>
+          <button class="sub-btn" data-sub="drama" role="tab" aria-selected="false">剧情片</button>
+        </div>
+
+        <!-- 圆形轮播 -->
+        <div class="cc-wrap reveal" id="ccWrap">
+          <div class="cc" id="worksCC" tabindex="0" role="region" aria-label="作品圆形轮播，可拖动旋转">
+            <div class="cc-viewport" id="ccViewport">
+              <div class="cc-stage" id="ccStage">
+                <div class="cc-ring" id="ccRing"></div>
+              </div>
+            </div>
+            <button class="cc-arrow cc-prev" id="ccPrev" aria-label="上一个作品">‹</button>
+            <button class="cc-arrow cc-next" id="ccNext" aria-label="下一个作品">›</button>
+            <div class="cc-empty" id="ccEmpty" hidden>该分类暂无作品，看看其他分类吧 ✨</div>
+          </div>
+          <div class="cc-caption" id="ccCaption">
+            <span class="cc-cap-cat" id="ccCapCat"></span>
+            <strong class="cc-cap-title" id="ccCapTitle"></strong>
+            <span class="cc-cap-sub" id="ccCapSub"></span>
+            <span class="cc-cap-count" id="ccCapCount"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 实习经历 ===================== -->
+    <section class="section journey" id="journey">
+      <div class="container">
+        <p class="section-no reveal">03 / JOURNEY</p>
+        <h2 class="section-title reveal">实习经历</h2>
+
+        <!-- 城市路线 -->
+        <div class="route reveal" id="route">
+          <div class="route-line" aria-hidden="true"></div>
+          <span class="route-plane" id="routePlane" aria-hidden="true">✈</span>
+          <div class="route-nodes" id="routeNodes"></div>
+        </div>
+
+        <!-- 四张小卡 -->
+        <div class="journey-grid" id="journeyGrid"></div>
+
+        <!-- 校园经历 -->
+        <div class="campus">
+          <h3 class="reveal">🌱 校园经历</h3>
+          <div class="campus-grid">
+            <div class="campus-card reveal">
+              <b>融媒体菁英班 · 副班长 &amp; 面试官</b>
+              <span>2025.09 – 2026.03</span>
+              <p>主持面试并制定面试问题与评估标准，与候选人充分交流，累计完成 60+ 人次面试。</p>
+            </div>
+            <div class="campus-card reveal">
+              <b>新闻与传播学院团学组织活动中心 · 学术部部门负责人</b>
+              <span>2023.09 – 2025.09</span>
+              <p>统筹策划学术讲座、文体活动 10 余场，覆盖师生 500+ 人次；负责活动材料整编与成果总结，获评「优秀部门负责人」。</p>
+            </div>
+            <div class="campus-card reveal">
+              <b>青年志愿者协会（十佳社团）· 志愿服务推广部副部长</b>
+              <span>2023.09 – 2025.03</span>
+              <p>统筹公益活动 10 余场，累计服务 800+ 人次；作为 2024 尤尼克斯世界青年羽毛球锦标赛媒体宣传部志愿者，对接新华社、央视网、世界羽联等媒体。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 联系方式 ===================== -->
+    <section class="section contact" id="contact">
+      <div class="bokeh" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="contact-deco" id="contactDeco" aria-hidden="true"></div>
+      <div class="container">
+        <p class="section-no reveal">04 / CONTACT</p>
+        <h2 class="section-title reveal">一起创造点什么吧</h2>
+        <p class="section-sub reveal">如果你对我的作品感兴趣，或有合作、工作机会，欢迎随时联系我！</p>
+
+        <div class="contact-cards reveal">
+          <button class="contact-card" data-copy="15719186708@163.com" type="button">
+            <span class="cc-icon">📮</span>
+            <span class="cc-body"><b>邮箱</b><em>15719186708@163.com</em></span>
+            <span class="cc-hint">点击复制</span>
+          </button>
+          <button class="contact-card" data-copy="15719186708" type="button">
+            <span class="cc-icon">💬</span>
+            <span class="cc-body"><b>微信</b><em>15719186708</em></span>
+            <span class="cc-hint">点击复制</span>
+          </button>
+        </div>
+
+        <div class="contact-actions reveal">
+          <button class="btn-pill btn-dark" type="button" data-doc="resume">📄 查看简历</button>
+          <button class="btn-pill btn-dark" type="button" data-doc="portfolio">📚 查看作品集</button>
+          <a class="btn-pill btn-ghost" href="mailto:15719186708@163.com">发邮件给我 →</a>
+        </div>
+
+        <!-- 摄影作品 · 春夏秋冬 -->
+        <div class="explore reveal">
+          <h3 class="explore-heading">📷 摄影作品 · 春夏秋冬</h3>
+          <p class="explore-tip">春序 / 夏盛 / 秋实 / 冬藏 —— 在平凡日常里捕捉光线与生活的褶皱 · 点击放大</p>
+          <div class="photo-wall" id="photoWall">
+            <figure class="pw" data-photo="0">
+              <img src="assets/img/photo-spring.jpg" alt="春序" loading="lazy">
+              <figcaption>春序 · Spring</figcaption>
+            </figure>
+            <figure class="pw" data-photo="1">
+              <img src="assets/img/photo-summer.jpg" alt="夏盛" loading="lazy">
+              <figcaption>夏盛 · Summer</figcaption>
+            </figure>
+            <figure class="pw" data-photo="2">
+              <img src="assets/img/photo-autumn.jpg" alt="秋实" loading="lazy">
+              <figcaption>秋实 · Autumn</figcaption>
+            </figure>
+            <figure class="pw" data-photo="3">
+              <img src="assets/img/photo-winter.jpg" alt="冬藏" loading="lazy">
+              <figcaption>冬藏 · Winter</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <p class="contact-foot reveal">下一段经历，也许可以一起创建～ Let's create together. 🌱</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== 页脚 ===================== -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-logo">✿ 王依然 · Yiran Wang</p>
+      <p class="footer-line">用数据与影像，讲好有温度的故事</p>
+      <p class="footer-meta">© <span id="year">2026</span> 王依然 · Designed &amp; Coded with ✿&nbsp; · <a href="#" id="replayIntro">重看开场 ↺</a> · <a href="#hero">回到顶部 ↑</a></p>
+    </div>
+  </footer>
+
+  <!-- ===================== 作品详情弹窗 ===================== -->
+  <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-panel" id="modalPanel">
+      <button class="modal-close" id="modalClose" aria-label="关闭">✕</button>
+      <div class="modal-media">
+        <img id="modalImg" src="" alt="">
+        <a class="modal-play" id="modalPlay" href="#" target="_blank" rel="noopener" hidden>▶<span>播放视频</span></a>
+      </div>
+      <div class="modal-body">
+        <div class="modal-chips">
+          <span class="chip chip-cat" id="modalCat"></span>
+          <span class="chip chip-award" id="modalAward" hidden></span>
+        </div>
+        <h3 id="modalTitle"></h3>
+        <p class="modal-sub" id="modalSub"></p>
+        <p class="modal-desc" id="modalDesc"></p>
+
+        <div class="modal-block" id="modalPagesBlock" hidden>
+          <h5>▎作品内页</h5>
+          <div class="page-strip" id="modalPages"></div>
+          <p class="page-tip">上方为作品集内页预览，可点击按钮打开完整原档</p>
+        </div>
+
+        <div class="modal-block" id="modalRoleBlock">
+          <h5>▎我的角色</h5>
+          <div class="tag-row" id="modalRole"></div>
+        </div>
+        <div class="modal-block" id="modalResultBlock">
+          <h5>▎成果数据</h5>
+          <p id="modalResult"></p>
+        </div>
+        <div class="modal-block" id="modalToolBlock">
+          <h5>▎使用工具</h5>
+          <div class="tag-row" id="modalTools"></div>
+        </div>
+
+        <div class="modal-actions" id="modalActions"></div>
+
+        <div class="modal-nav">
+          <button id="modalPrev" type="button">← 上一个</button>
+          <span id="modalCounter"></span>
+          <button id="modalNext" type="button">下一个 →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== 文档翻阅器（简历 / 作品集 / 作品原档） ===================== -->
+  <div class="docview" id="docview" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="dv-head">
+      <strong id="dvTitle">文档</strong>
+      <div class="dv-actions">
+        <button class="dv-origin" id="dvOrigin" type="button" hidden>查看原档 ↗</button>
+        <button class="dv-origin dv-back" id="dvBack" type="button" hidden>← 图片版</button>
+        <button class="dv-close" id="dvClose" aria-label="关闭">✕</button>
+      </div>
+    </div>
+    <div class="dv-stage" id="dvStage">
+      <button class="dv-nav dv-prev" id="dvPrev" aria-label="上一页">‹</button>
+      <img id="dvImg" alt="文档页面">
+      <iframe id="dvPdf" class="dv-pdf" title="原档 PDF" hidden></iframe>
+      <div class="dv-canvas-wrap" id="dvCanvasWrap" hidden>
+        <div class="dv-canvas-bar">
+          <button type="button" id="dvCvPrev" aria-label="上一页">‹</button>
+          <span id="dvCanvasCount">1 / 1</span>
+          <button type="button" id="dvCvNext" aria-label="下一页">›</button>
+          <span class="dv-cv-zoom">
+            <button type="button" id="dvZoomOut" aria-label="缩小">−</button>
+            <button type="button" id="dvZoomIn" aria-label="放大">＋</button>
+          </span>
+        </div>
+        <canvas id="dvCanvas" class="dv-canvas"></canvas>
+      </div>
+      <div class="dv-pdf-loading" id="dvPdfLoading" hidden><span class="dv-spinner"></span><p>正在打开原档…</p></div>
+      <p class="dv-error" id="dvError" hidden>页面加载失败，请稍后重试</p>
+      <button class="dv-nav dv-next" id="dvNext" aria-label="下一页">›</button>
+    </div>
+    <div class="dv-foot">
+      <span id="dvCount">1 / 1</span>
+      <span class="dv-tip">← → 方向键翻页 · ESC 关闭</span>
+    </div>
+  </div>
+
+  <!-- ===================== 摄影灯箱 ===================== -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lb-close" id="lbClose" aria-label="关闭">✕</button>
+    <button class="lb-nav lb-prev" id="lbPrev" aria-label="上一张">‹</button>
+    <figure class="lb-figure">
+      <img id="lbImg" src="" alt="">
+      <figcaption id="lbCap"></figcaption>
+    </figure>
+    <button class="lb-nav lb-next" id="lbNext" aria-label="下一张">›</button>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+
+  <script src="js/main.js"></script>
+  <script src="js/intro.js"></script>
+</body>
+</html>
